@@ -12,5 +12,7 @@ namespace Responsiblegarbage.Web.Models
         public string Name { get; set; }
 
         public ICollection<DumpsterGarbageType> Dumpsters { get; set; }
+
+        public ICollection<ProductGarbageType> Products { get; set; }
     }
 }

@@ -2,6 +2,7 @@
 using Responsiblegarbage.Web.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -23,10 +24,14 @@ namespace Responsiblegarbage.Web.Data
         public DbSet<Company> Companies { get; set; }
 
         public DbSet<GarbageType> GarbageTypes { get; set; }
+       
+        public DbSet<Dumpster> Dumpsters { get; set; }
 
         public DbSet<DumpsterGarbageType> DumpsterGarbageTypes { get; set; }
 
         public DbSet<Recycler> Recyclers { get; set; }
+
+        public DbSet<ProductGarbageType> ProductGarbageTypes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -44,6 +49,20 @@ namespace Responsiblegarbage.Web.Data
             modelBuilder.Entity<DumpsterGarbageType>()
                   .HasOne(c => c.Type)
                   .WithMany(s => s.Dumpsters)
+                   .HasForeignKey(r => r.TypeId);
+
+            //Product - GarbageType
+            modelBuilder.Entity<ProductGarbageType>()
+            .HasKey(r => new { r.ProductId, r.TypeId });
+
+            modelBuilder.Entity<ProductGarbageType>()
+                  .HasOne(c => c.Product)
+                  .WithMany(s => s.Types)
+                  .HasForeignKey(r => r.ProductId);
+
+            modelBuilder.Entity<ProductGarbageType>()
+                  .HasOne(c => c.Type)
+                  .WithMany(s => s.Products)
                    .HasForeignKey(r => r.TypeId);
 
             //postgis

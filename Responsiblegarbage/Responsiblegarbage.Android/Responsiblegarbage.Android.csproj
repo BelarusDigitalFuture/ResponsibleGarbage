@@ -88,6 +88,10 @@
     <AndroidResource Include="Resources\drawable\xamarin_logo.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Responsiblegarbage.Shared\Responsiblegarbage.Shared.csproj">
+      <Project>{687d1514-c56d-4bd7-8aa3-a158afa53280}</Project>
+      <Name>Responsiblegarbage.Shared</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Responsiblegarbage\Responsiblegarbage.csproj">
       <Project>{A28A047A-7A04-4EA7-87F3-AE7D81B2B9DC}</Project>
       <Name>Responsiblegarbage</Name>

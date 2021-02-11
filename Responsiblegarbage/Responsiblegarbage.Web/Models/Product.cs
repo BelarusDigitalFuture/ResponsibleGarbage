@@ -18,5 +18,7 @@ namespace Responsiblegarbage.Web.Models
         public string Image { get; set; }
 
         public Company Company { get; set; }
+
+        public ICollection<ProductGarbageType> Types { get; set; }
     }
 }

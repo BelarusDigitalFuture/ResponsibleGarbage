@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Responsiblegarbage.Web.Models
 {
+    [Table("Dumpster")]
     public class Dumpster : BaseEntity
     {
         public int Id { get; set; }
