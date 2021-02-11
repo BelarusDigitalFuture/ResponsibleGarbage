@@ -42,7 +42,10 @@ namespace Responsiblegarbage.Web
 
             TypeAdapterConfig<Dumpster, DumpsterDto>.NewConfig()
                      .Map(dest => dest.Location, src => new Location(src.Location.X, src.Location.Y));
-                     //.Map(dest => dest.Types, src => src.Types);
+            //.Map(dest => dest.Types, src => src.Types);
+
+            // Register the Swagger generator, defining 1 or more Swagger documents
+            services.AddSwaggerGen();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -52,7 +55,20 @@ namespace Responsiblegarbage.Web
                 app.UseDeveloperExceptionPage();
             }
 
+        
+
             app.UseHttpsRedirection();
+
+            app.UseSwagger();
+
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
+            // specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                c.RoutePrefix = string.Empty;
+            });
+
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>

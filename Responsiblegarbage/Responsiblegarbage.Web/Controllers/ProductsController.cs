@@ -19,12 +19,13 @@ namespace Responsiblegarbage.Web.Controllers
             this.productService = productService ?? throw new ArgumentNullException(nameof(productService));
         }
 
-        public async Task<ActionResult> Search(string barcode)
+        [HttpGet("search")]
+        public async Task<ActionResult> Search([FromQuery] string barcode)
         {
             var product = await productService.GetByBarcodeAsync(barcode);
             if (product == null)
                 return NotFound();
-            
+
             return Ok(product);
         }
     }
