@@ -35,7 +35,7 @@ namespace Responsiblegarbage.Views
                         break;
                     case (int)MenuItemType.About:
                         MenuPages.Add(id, new NavigationPage(new AboutPage()));
-                        break;
+                        break;                    
                 }
             }
 

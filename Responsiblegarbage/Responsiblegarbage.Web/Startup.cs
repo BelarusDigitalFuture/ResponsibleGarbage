@@ -53,9 +53,7 @@ namespace Responsiblegarbage.Web
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-            }
-
-        
+            }        
 
             app.UseHttpsRedirection();
 

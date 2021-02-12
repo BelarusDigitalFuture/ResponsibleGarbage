@@ -7,7 +7,8 @@ namespace Responsiblegarbage.Models
     public enum MenuItemType
     {
         Browse,
-        About
+        About,
+        SearchProduct
     }
     public class HomeMenuItem
     {

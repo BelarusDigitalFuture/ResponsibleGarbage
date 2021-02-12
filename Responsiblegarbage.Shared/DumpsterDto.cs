@@ -13,5 +13,13 @@ namespace Responsiblegarbage.Shared
         public Location Location { get; set; }
 
         public List<GarbageTypeDto> Types { get; set; }
+
+        public string TypesString
+        {
+            get
+            {
+                return string.Join(", ", Types);
+            }
+        }
     }
 }
